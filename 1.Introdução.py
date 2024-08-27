@@ -43,7 +43,6 @@ dados
 # serie2 = pd.concat([data, dados], axis=1)
 # serie2
 
-# Série
 # serie2 = pd.Series(serie2['valores'].values, index = serie2['data'])
 # serie2
 # serie2.plot()
@@ -51,12 +50,18 @@ dados
 
 # Criando dados aleatórios (Série Diária)
 # np.random.seed(12)
-# ados3 = np.random.normal(1,2,731)
-# dados3
+# dados = np.random.normal(0,1,731)
+# dados = pd.DataFrame(dados)
+# dados.columns = ['valores']
+# dados
 
 # Selecionando o Período 
-# periodo = pd.date_range('2000', periods = len(dados), freq = 'D')
-# periodo
+# data = pd.date_range('2019 Jan 1', periods = len(dados3), freq = 'D'
+# data
+
+# serie3 = pd.Series(dados['valores'].values, index = data)
+# serie3.plot()
+# plt.show()
 
 # Tabela 
 dados = pd.DataFrame(dados)
