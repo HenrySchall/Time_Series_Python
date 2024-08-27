@@ -88,6 +88,8 @@ plt.show()
 #########################
 
 from random import sample, random
+
+# Série Passeio aleatório 1
 # Criando dados
 dados_alet = sample(range(100), k=41) # k -> valores retirados de 100
 dados_alet
@@ -98,6 +100,21 @@ periodo
 
 serie_alet = pd.Series(dados_alet, index = periodo)
 serie_alet
+serie_alet.plot()
+plt.show()
+
+## Série Passeio aleatório 2
+# Criando dados
+serie2 = list()
+serie2.append(-1 if random() < 0.5 else 1)
+for i in range(1, 1000):
+    movimento = -1 if random() < 0.5 else 1
+    valor = serie2[i-1] + movimento
+    serie2.append(valor)
+
+serie2 = pd.Series(serie2)
+serie2.plot()
+plt.show()
 
 ##############
 ### Testes ###
