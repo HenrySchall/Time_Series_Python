@@ -87,6 +87,18 @@ plt.show()
 ### Passeio Aleatório ###
 #########################
 
+from random import sample, random
+# Criando dados
+dados_alet = sample(range(100), k=41) # k -> valores retirados de 100
+dados_alet
+
+# Criando período
+periodo = list(range(1980, 2021))
+periodo
+
+serie_alet = pd.Series(dados_alet, index = periodo)
+serie_alet
+
 ##############
 ### Testes ###
 ##############
