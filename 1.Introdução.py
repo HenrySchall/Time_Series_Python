@@ -10,6 +10,7 @@ import seaborn.objects as so
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 from matplotlib.pylab import rcParams
+import statsmodels.tsa.stattools as sm
 import plotly.express as px
 import math as math
 
@@ -86,7 +87,6 @@ plt.show()
 ### Passeio Aleatório ###
 #########################
 
-
 ##############
 ### Testes ###
 ##############
@@ -104,19 +104,30 @@ plt.show()
 
 ### Testes de Estacionaridade ###
 
-# Teste KPSS (Kwiatkowski-Phillips-Schmidt-Shin)
-# - H0 = é estacionária: teste estatístico < valor crítico
-# - H1 = não é estacionária: teste estatístico >= valor crítico
-
-
 # Teste pp (Philips-Perron)
 #  - H0 = é estacionária: p > 0.05
 #  - H1 = não é estacionária: p <= 0.05
+pp_test = sm.phillips_perron(serie1)
 
+# Renomendando saídas 
+pp_test_output = {'Estatítica do teste': pp_test[0], 'p-value': pp_test[1], 'Número de lags': pp_test[2], 'Número de Observações': pp_test[3], 'Valores Críticos': pp_test[4]}
+pp_test_output
+
+# Teste KPSS (Kwiatkowski-Phillips-Schmidt-Shin)
+# - H0 = é estacionária: teste estatístico < valor crítico
+# - H1 = não é estacionária: teste estatístico >= valor crítico
+kpss_test = sm.kpss(serie1)
+
+kpss_test_output = {'Estatítica do teste': pp_test[0], 'p-value': pp_test[1], 'Número de lags': pp_test[2], 'Valores Críticos': pp_test[3]}
+kpss_test_output
 
 # Teste Dickey Fuller
 #  - H0 = é estacionária:  teste estatístico < valor crítico
 #  - H1 = não é estacionária: teste estatístico > valor crítico
+df_test = sm.adfuller(serie1)
+
+df_test_output = {'Estatítica do teste': pp_test[0], 'p-value': pp_test[1], 'Número de lags': pp_test[2], 'Número de Observações': pp_test[3], 'Valores Críticos': pp_test[4]}
+df_test_output
 
 ### Testes de Autocorrelação ###
 
