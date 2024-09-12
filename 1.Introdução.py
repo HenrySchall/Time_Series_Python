@@ -13,6 +13,7 @@ from matplotlib.pylab import rcParams
 import statsmodels.tsa.stattools as sm
 import plotly.express as px
 import math as math
+from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
 
 ######################
 ### Série Temporal ###
@@ -164,6 +165,27 @@ df_test_output
 # - H0: não autocorrelacionados (p > 0.05)
 # - H1: são autocorrelacionados (p <= 0.05)
 
+####################
+### Decomposição ###
+####################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ######################
 ### Autocorrelação ###
 ######################
@@ -176,7 +198,10 @@ serie = pd.Series(dados1)
 serie.plot()
 plt.show()
 
-####################
-### Decomposição ###
-####################
+## FAC ###
+plot_acf(serie, lags=15)
+plt.show()
 
+## FACP ###
+plot_pacf(serie, lags=30)
+plt.show()
