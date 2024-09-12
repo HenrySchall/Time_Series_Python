@@ -214,5 +214,15 @@ serie = pd.Series(concentracao['co2'].values, index = concentracao.index)
 serie
 
 serie.plot()
+plt.show()
 
-decomposicao = decompose(serie)
+# Valores missing
+concentracao.isnull().sum()
+concentracao.dropna(inplace=True)
+
+serie2 = pd.Series(concentracao['co2'].values, index = concentracao.index)
+serie2.plot()
+plt.show()
+
+decomposicao = decompose(serie2, period=15)
+decomposicao = decompose(serie2)
