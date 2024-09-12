@@ -226,3 +226,29 @@ plt.show()
 
 decomposicao = decompose(serie2, period=15)
 decomposicao = decompose(serie2)
+
+decomposicao.plot()
+plt.show()
+
+# Renomeando Labels
+plt.subplot(411)
+plt.plot(serie, label='Original')
+plt.legend(loc='best')
+plt.subplot(412)
+plt.plot(decomposicao.trend, label='Tendência')
+plt.legend(loc='best')
+plt.subplot(413)
+plt.plot(decomposicao.seasonal,label='Sazonalidade')
+plt.legend(loc='best')
+plt.subplot(414)
+plt.plot(decomposicao.resid, label='Resíduos')
+plt.legend(loc='best')
+plt.tight_layout()
+plt.show()
+
+# Decomposição multiplicativa
+decomp_mult = decompose(serie2,period=7,model='multiplicative')
+decomp_mult.plot()
+
+decomp_mult.plot()
+plt.show()
