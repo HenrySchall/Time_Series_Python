@@ -14,6 +14,7 @@ import statsmodels.tsa.stattools as sm
 import plotly.express as px
 import math as math
 from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
+from statsmodels.tsa.seasonal import seasonal_decompose as decompose
 import statsmodels.api as sm
 
 ######################
@@ -205,3 +206,13 @@ df_test_output
 ####################
 ### Decomposição ###
 ####################
+
+concentracao = sm.datasets.co2.load_pandas().data
+concentracao
+
+serie = pd.Series(concentracao['co2'].values, index = concentracao.index)
+serie
+
+serie.plot()
+
+decomposicao = decompose(serie)
