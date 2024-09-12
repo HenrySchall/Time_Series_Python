@@ -164,6 +164,18 @@ df_test_output
 # - H0: não autocorrelacionados (p > 0.05)
 # - H1: são autocorrelacionados (p <= 0.05)
 
+######################
+### Autocorrelação ###
+######################
+
+np.random.seed(6)
+dados1 = np.random.normal(0,1,72)
+dados1
+
+serie = pd.Series(dados1)
+serie.plot()
+plt.show()
+
 ####################
 ### Decomposição ###
 ####################
