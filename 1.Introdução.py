@@ -110,15 +110,15 @@ plt.show()
 manchas_solares = sm.datasets.sunspots.load_pandas().data
 manchas_solares
 
-serie3 = pd.Series(manchas_solares['SUNACTIVITY'].values, index = manchas_solares['YEAR'])
-serie3
+serie_m = pd.Series(manchas_solares['SUNACTIVITY'].values, index = manchas_solares['YEAR'])
+serie_m
 
-serie3.plot()
+serie_m.plot()
 
-plot_acf(serie3, lags=45)
+plot_acf(serie_m, lags=45)
 plt.show()
 
-plot_pacf(serie3, lags=30)
+plot_pacf(serie_m, lags=30)
 plt.show()
 
 #########################
