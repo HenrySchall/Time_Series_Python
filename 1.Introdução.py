@@ -14,6 +14,7 @@ import statsmodels.tsa.stattools as sm
 import plotly.express as px
 import math as math
 from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
+import statsmodels.api as sm
 
 ######################
 ### Série Temporal ###
@@ -82,6 +83,42 @@ periodo
 
 serie1 = pd.Series(dados['valores'].values, index = periodo)
 serie1.plot()
+plt.show()
+
+######################
+### Autocorrelação ###
+######################
+
+np.random.seed(6)
+dados1 = np.random.normal(0,1,72)
+dados1
+
+serie = pd.Series(dados1)
+serie.plot()
+plt.show()
+
+## FAC ###
+plot_acf(serie, lags=15)
+plt.show()
+
+## FACP ###
+plot_pacf(serie, lags=30)
+plt.show()
+
+### Case Manchas Solares ###
+
+manchas_solares = sm.datasets.sunspots.load_pandas().data
+manchas_solares
+
+serie3 = pd.Series(manchas_solares['SUNACTIVITY'].values, index = manchas_solares['YEAR'])
+serie3
+
+serie3.plot()
+
+plot_acf(serie3, lags=45)
+plt.show()
+
+plot_pacf(serie3, lags=30)
 plt.show()
 
 #########################
@@ -168,40 +205,3 @@ df_test_output
 ####################
 ### Decomposição ###
 ####################
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-######################
-### Autocorrelação ###
-######################
-
-np.random.seed(6)
-dados1 = np.random.normal(0,1,72)
-dados1
-
-serie = pd.Series(dados1)
-serie.plot()
-plt.show()
-
-## FAC ###
-plot_acf(serie, lags=15)
-plt.show()
-
-## FACP ###
-plot_pacf(serie, lags=30)
-plt.show()
