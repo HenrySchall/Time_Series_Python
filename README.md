@@ -88,7 +88,7 @@ Exemplos:
 - Modelo I: (0, 2, 0)
 - Modelo ARMA: (4, 0, 1)
 - Modelo SARIMA: (1, 1, 2)(2, 0, 1)
-- 
+
 #### Função de Autocorrelação (FAC) e Função de Autocorrelação Parcial (FACP)
 
 #### Akaike’s Information Criterion (AIC) e o Bayesian Information Criterion (BIC)
